@@ -241,15 +241,14 @@ while True:
         print("\033[1;91m\nDeadly!\033[0m\n")
     elif moves == 4:  # rolled aa 4 --> supershot (roll again)
         print("\033[1;97m\nSuper Shot!\033[0m\n")
-        
-    if playerIx == 4 and not currentPlayer.hasWon:  # reset player turn after an entire round
+    
+    if playerIx == 4 and len(ranking) < 1 and not currentPlayer.hasWon:  # reset player turn after an entire round
         playerIx = 0
-    elif currentPlayer.hasWon:
-        continue
-    # elif currentPlayer.hasWon:
-    #     playerIx = 1
-        
-    if len(ranking) == 3:  # check 3 players have won and display ranking
+    elif playerIx == 4 and len(ranking) >=1 and currentPlayer.hasWon:
+        print(f"Player {currentPlayer} has already won!")
+    elif playerIx == 4 and len(ranking) >=2 and currentPlayer.hasWon:
+        print(f"Player {currentPlayer} has already won!")
+    elif len(ranking) == 3:  # check 3 players have won and display ranking
     
         rank_place = 0  # variable to track ranking
         for p in ranking:  # print ranking
